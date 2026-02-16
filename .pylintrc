@@ -1,0 +1,80 @@
+[MASTER]
+# Add files or directories to the blacklist. They should be base names, not paths.
+ignore=CVS
+ignore-patterns=test_.*?\.py
+
+# Use multiple processes to speed up Pylint
+jobs=4
+
+# Allow pickle objects
+unsafe-load-any-extension=yes
+
+[MESSAGES CONTROL]
+# Disable specific warnings
+disable=
+    missing-module-docstring,
+    too-few-public-methods,
+    duplicate-code
+
+[REPORTS]
+# Only show warnings with specific confidence
+confidence=HIGH
+
+[VARIABLES]
+# List of strings which can identify a callback function by name
+additional-builtins=
+
+[FORMAT]
+# Maximum number of characters on a single line
+max-line-length=100
+
+# Maximum number of lines in module
+max-module-lines=1000
+
+[DESIGN]
+# Maximum number of arguments for function / method
+max-args=5
+
+# Maximum number of attributes for a class
+max-attributes=7
+
+# Maximum number of boolean expressions in an if statement
+max-bool-expr=5
+
+# Maximum number of branch for function / method body
+max-branches=12
+
+# Maximum number of locals for function / method body
+max-locals=15
+
+# Maximum number of parents for a class
+max-parents=7
+
+# Maximum number of public methods for a class
+max-public-methods=20
+
+# Maximum number of return / yield for function / method body
+max-returns=6
+
+# Maximum number of statements in function / method body
+max-statements=50
+
+[BASIC]
+# Good variable names which should always be accepted, separated by a comma
+good-names=i,j,k,ex,Run,_
+
+# Include a hint for the correct naming format with invalid-name
+include-naming-hint=yes
+
+# Naming style matching correct function names
+function-naming-style=snake_case
+
+# Naming style matching correct variable names
+variable-naming-style=snake_case
+
+# Naming style matching correct class names
+class-naming-style=PascalCase
+
+[LOGGING]
+# Format of logging format string
+logging-format-string=%(asctime)s - %(name)s - %(levelname)s - %(message)s

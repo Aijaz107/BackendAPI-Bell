@@ -45,6 +45,11 @@ coverage.xml
 .pytest_cache/
 htmlcov/
 
+# Linting (Pylint)
+.pylint.d/
+pylint_reports/
+*.pylint
+
 # IDEs
 .vscode/
 .idea/

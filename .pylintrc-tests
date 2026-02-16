@@ -1,0 +1,43 @@
+[MASTER]
+# Configuration for test files (more relaxed)
+ignore=CVS
+
+jobs=4
+
+[MESSAGES CONTROL]
+# Disable warnings that are less critical for tests
+disable=
+    missing-module-docstring,
+    missing-function-docstring,
+    too-few-public-methods,
+    duplicate-code,
+    redefined-outer-name,
+    unused-argument
+
+[REPORTS]
+confidence=HIGH
+
+[FORMAT]
+max-line-length=120
+
+max-module-lines=2000
+
+[DESIGN]
+max-args=6
+
+max-attributes=10
+
+max-branches=15
+
+max-locals=20
+
+max-statements=100
+
+[BASIC]
+good-names=i,j,k,ex,Run,_,app,db,client
+
+function-naming-style=snake_case
+
+variable-naming-style=snake_case
+
+class-naming-style=PascalCase
