@@ -98,7 +98,7 @@ def create_user():
     return jsonify({'message': 'User created'}), 201
 
 # Route for viewing all users
-@app.route('/api/users', methods=['GET'])
+@app.route('/api/users/', methods=['GET'])
 def get_all_users():
     users = Users.query.all()
     users_list = []
