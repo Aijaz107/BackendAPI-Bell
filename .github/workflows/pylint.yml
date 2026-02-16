@@ -29,7 +29,8 @@ jobs:
     
     - name: Install project dependencies
       run: |
-        pip install -r requirements.txt
+        # Install dependencies but skip pyodbc (not needed for linting)
+        pip install flask flask-sqlalchemy flask-cors werkzeug
         pip install pylint
     
     - name: Run Pylint analysis on production code
