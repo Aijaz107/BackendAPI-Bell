@@ -54,6 +54,9 @@ BackendAPI/
 └── README.md                     # This file
 ```
 
+<img width="1536" height="1024" alt="architecture" src="https://github.com/user-attachments/assets/51552195-b372-412d-8b1f-d590576e9a82" />
+
+
 ## Prerequisites
 
 - **Python**: 3.7 or higher
