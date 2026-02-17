@@ -11,6 +11,7 @@ Version: 1.0.0
 
 from flask import jsonify
 from werkzeug.utils import secure_filename
+from werkzeug.security import generate_password_hash, check_password_hash
 from ..models import User
 from .. import db
 import os
@@ -147,7 +148,7 @@ def create_user_service(request):
         first_name=data["first_name"],
         last_name=data["last_name"],
         email=data["email"],
-        password=data["password"],  # TODO: Hash password in production!
+        password=generate_password_hash(data["password"]),
         image=filename
     )
 
@@ -196,7 +197,9 @@ def update_user_service(user_id: int, request):
     user.first_name = data.get("first_name", user.first_name)
     user.last_name = data.get("last_name", user.last_name)
     user.email = data.get("email", user.email)
-    user.password = data.get("password", user.password)
+    # Only update password if provided; store as a hash
+    if data.get("password"):
+        user.password = generate_password_hash(data.get("password"))
 
     # Handle optional image update
     image_file = request.files.get("image")
@@ -211,6 +214,20 @@ def update_user_service(user_id: int, request):
 
     # Return updated user data
     return jsonify(user.to_dict()), 200
+
+
+def verify_user_password(user: User, plain_password: str) -> bool:
+    """
+    Verify a plaintext password against the stored hash.
+
+    Args:
+        user (User): User model instance with `password` hash
+        plain_password (str): Plaintext password to verify
+
+    Returns:
+        bool: True if password matches, False otherwise
+    """
+    return check_password_hash(user.password, plain_password)
 
 
 def delete_user_service(user_id: int):

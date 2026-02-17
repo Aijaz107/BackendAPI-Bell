@@ -50,8 +50,9 @@ class User(db.Model):
     # Email must be unique across all users for identification
     email = db.Column(db.String(100), unique=True, nullable=False)
     
-    # Password field (should be hashed using bcrypt or argon2 in production)
-    password = db.Column(db.String(100), nullable=False)
+    # Password field (stored as a hash)
+    # Increase column length to accommodate hashed values
+    password = db.Column(db.String(1000), nullable=False)
     
     # Optional profile image filename
     image = db.Column(db.String(200))
